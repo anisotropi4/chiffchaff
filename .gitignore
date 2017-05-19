@@ -1,11 +1,37 @@
+# edit
+*~
+*#
+.*#
+
 # Compiled
 *.elc
 
 # Packaging
 .cask
 
-# Backup files
-*~
+# data files
+*.csv
+*.json
+*.ndjson
+*.svg
+*.tsv
+*.xlsx
+*.zip
 
-# Undo-tree save-files
-*.~undo-tree
+#Archive files
+README.txt
+*.pdf
+
+# automatic generated table files
+table_*.sql
+
+# geography files
+*.dbf
+*.prj
+*.qgs
+*.qix
+*.qml
+*.qpj
+*.shp
+*.shx
+

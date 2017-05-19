@@ -1,0 +1,11 @@
+for i in fullways
+filter i.tags.railway == "rail"
+for j in unique(i.nodes)
+let k = first(for k in fullnodes 
+filter k._key == to_string(j) 
+limit 1 
+return {lat: k.lat, lon: k.lon})
+upsert { _key: to_string(j)}
+insert {_key: to_string(j), ways: [ i.id ], count: 1, node: j}
+update({ ways: append(OLD.ways, i.id), count: OLD.count + 1})
+in fullrailnodes
