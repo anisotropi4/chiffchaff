@@ -1,0 +1,7 @@
+for i in fulljunctions
+for j in fullnodes
+filter i._key == j._key
+for k in fullfilternodes
+filter i._key == k._key
+let v = keep(merge(i, j, k, {"title": i.node, "lvalid": (log(k.valid)/log(2.0))}), "title", "lat", "lon", "tags", "lvalid")
+return v

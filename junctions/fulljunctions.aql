@@ -1,0 +1,19 @@
+for j in append (
+    for i in fullrailnodes
+    filter i.count > 1
+    return {
+	node: i.node 
+    },
+    for i in fullrailnodes
+    filter i.count == 1
+    for j in i.ways
+    for k in fullways
+    filter k._key == to_string(j)
+    filter i.node in [first(k.nodes), last(k.nodes)]
+    return {
+	node: i.node
+    })
+insert {
+    _key: to_string(j.node),
+    node: j.node
+} into fulljunctions
